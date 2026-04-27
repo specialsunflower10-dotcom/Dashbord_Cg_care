@@ -153,7 +153,7 @@
                                     <option value="น.ส.ทิพย์สุดา ผ่านชมภู">น.ส.ทิพย์สุดา ผ่านชมภู</option>
                                     <option value="น.ส.มุกดาวรรณ สีแก้วตู้">น.ส.มุกดาวรรณ สีแก้วตู้</option>
                                     <option value="น.ส.อำพร นาทองลาย">น.ส.อำพร นาทองลาย</option>
-                                    <option value="น.ส.สุธิดา แก้วมาตย์">น.ส.สุธิดา แก้วมาตย์</option>
+                                    <option value="น.ส.สุธิด แก้วมาตย์">น.ส.สุธิดา แก้วมาตย์</option>
                                     <option value="นางชนากานต์ ปรังกลาง">นางชนากานต์ ปรังกลาง</option>
                                     <option value="นางราตรี พันธ์พรม">นางราตรี พันธ์พรม</option>
                                     <option value="นางอรศศิพัชร์ อริยเกษมศร">นางอรศศิพัชร์ อริยเกษมศร</option>
@@ -479,7 +479,7 @@
                                 <input type="number" id="adlAge" placeholder="อายุ" class="w-full rounded-lg border-teal-200 bg-white p-2.5 outline-none focus:ring-2 focus:ring-teal-400">
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 mb-1">บ้านเลขที่</label>
                                 <input type="text" id="adlHouseNo" placeholder="เช่น 123/4" class="w-full rounded-lg border-teal-200 bg-white p-2.5 outline-none focus:ring-2 focus:ring-teal-400">
@@ -496,6 +496,10 @@
                                     <option value="โนนทองอินทร์">ตำบลโนนทองอินทร์</option>
                                     <option value="คอนสาย">ตำบลคอนสาย</option>
                                 </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">วันที่ประเมิน</label>
+                                <input type="date" id="adlDate" required class="w-full rounded-lg border-teal-200 bg-white p-2.5 outline-none focus:ring-2 focus:ring-teal-400">
                             </div>
                         </div>
                     </div>
@@ -544,6 +548,8 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q5" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> เดินหรือเคลื่อนที่โดยมีคนช่วย เช่น พยุง หรือบอกให้ทำตาม หรือต้องให้ความสนใจดูแลเพื่อความปลอดภัย</span></label>
                             <label class="adl-radio-label"><input type="radio" name="adl_q5" value="3" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>3 คะแนน:</b> เดินหรือเคลื่อนที่ได้เอง</span></label>
                         </div>
+
+                        <div style="page-break-before: always;"></div>
 
                         <!-- Q6 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
@@ -674,6 +680,19 @@
             const thaiMonths = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
             const currentMonthStr = thaiMonths[new Date().getMonth()];
             document.getElementById('month').value = currentMonthStr;
+
+            // ตั้งค่าวันที่ปัจจุบันอัตโนมัติ
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+            
+            const dateInput = document.getElementById('date');
+            if (dateInput) dateInput.value = todayStr;
+            
+            const adlDateInput = document.getElementById('adlDate');
+            if (adlDateInput) adlDateInput.value = todayStr;
             
             switchTab('dashboard');
         });
@@ -1119,6 +1138,13 @@
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
 
+            const rawAdlDate = document.getElementById('adlDate').value;
+            let thAdlDate = rawAdlDate;
+            if(rawAdlDate) {
+                const parts = rawAdlDate.split('-');
+                thAdlDate = `${parts[2]}/${parts[1]}/${parseInt(parts[0]) + 543}`;
+            }
+
             let qSelected = {};
             for(let i=1; i<=10; i++) {
                 const sel = document.querySelector(`input[name="adl_q${i}"]:checked`);
@@ -1127,6 +1153,7 @@
 
             const formData = {
                 action: "save_adl",
+                adlDate: thAdlDate,
                 title: document.getElementById('adlTitle').value,
                 firstName: fName,
                 lastName: document.getElementById('adlLastName').value.trim(),
@@ -1153,6 +1180,26 @@
             .then(data => {
                 if(data.status === 'success') {
                     showAdlAlert('<i class="fas fa-check-circle text-2xl mb-1 block text-green-500"></i> บันทึกข้อมูลประเมิน ADL สำเร็จ!', 'success');
+                    
+                    document.getElementById('adlTitle').value = '';
+                    document.getElementById('adlFirstName').value = '';
+                    document.getElementById('adlLastName').value = '';
+                    document.getElementById('adlAge').value = '';
+                    document.getElementById('adlHouseNo').value = '';
+                    document.getElementById('adlMoo').value = '';
+                    document.getElementById('adlSubDistrict').value = '';
+                    
+                    // รีเซ็ตวันที่เป็นวันปัจจุบัน
+                    const today = new Date();
+                    const yyyy = today.getFullYear();
+                    const mm = String(today.getMonth() + 1).padStart(2, '0');
+                    const dd = String(today.getDate()).padStart(2, '0');
+                    document.getElementById('adlDate').value = `${yyyy}-${mm}-${dd}`;
+                    
+                    // ล้างการเลือก Radio button
+                    document.querySelectorAll('.adl-radio-input').forEach(radio => radio.checked = false);
+                    calculateADL();
+
                 } else {
                     showAdlAlert('เกิดข้อผิดพลาดจากเซิร์ฟเวอร์: ' + data.message, 'error');
                 }
@@ -1176,6 +1223,13 @@
             const moo = document.getElementById('adlMoo').value.trim();
             const subDist = document.getElementById('adlSubDistrict').value.trim();
             
+            const rawAdlDate = document.getElementById('adlDate').value;
+            let thAdlDate = ".........................";
+            if(rawAdlDate) {
+                const parts = rawAdlDate.split('-');
+                thAdlDate = `${parts[2]}/${parts[1]}/${parseInt(parts[0]) + 543}`;
+            }
+
             const fullName = `${title}${fName} ${lName}`.trim();
             
             // Get selected answers
@@ -1223,8 +1277,11 @@
                 <div class="header">แบบประเมินคัดกรอง Barthel ADL</div>
                 
                 <div class="info-row">
-                    <b>ชื่อ-สกุล</b> ${fullName || '.............................................................'} &nbsp;&nbsp;&nbsp;&nbsp;
-                    <b>อายุ</b> ${age || '..........'} <b>ปี</b> <br>
+                    <b>วันที่ประเมิน</b> ${thAdlDate} <br>
+                    <div style="margin-top: 8px;">
+                        <b>ชื่อ-สกุล</b> ${fullName || '.............................................................'} &nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>อายุ</b> ${age || '..........'} <b>ปี</b>
+                    </div>
                     <div style="margin-top: 8px;">
                         <b>บ้านเลขที่</b> ${hNo || '.........................'} &nbsp;&nbsp;&nbsp;&nbsp;
                         <b>หมู่ที่</b> ${moo || '..........'} &nbsp;&nbsp;&nbsp;&nbsp;
