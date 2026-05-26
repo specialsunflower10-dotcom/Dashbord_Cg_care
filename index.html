@@ -88,7 +88,6 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
 
-        <!-- 1. Dashboard Tab -->
         <div id="dashboard" class="tab-content active">
             <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between">
                 <div>
@@ -112,7 +111,6 @@
             </div>
         </div>
 
-        <!-- 2. Form Tab -->
         <div id="form" class="tab-content">
             <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden mb-6">
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 border-b border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center">
@@ -126,7 +124,6 @@
                 <form id="cgForm" class="p-5 md:p-8">
                     <div id="alertBox" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all duration-300"></div>
 
-                    <!-- ส่วนที่ 1: ข้อมูลทั่วไป -->
                     <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-8 relative">
                         <span class="absolute -top-3 left-4 bg-slate-200 text-slate-600 px-3 py-0.5 rounded-full text-xs font-bold">1. ข้อมูลเจ้าหน้าที่</span>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-2">
@@ -153,7 +150,7 @@
                                     <option value="น.ส.ทิพย์สุดา ผ่านชมภู">น.ส.ทิพย์สุดา ผ่านชมภู</option>
                                     <option value="น.ส.มุกดาวรรณ สีแก้วตู้">น.ส.มุกดาวรรณ สีแก้วตู้</option>
                                     <option value="น.ส.อำพร นาทองลาย">น.ส.อำพร นาทองลาย</option>
-                                    <option value="น.ส.สุธิด แก้วมาตย์">น.ส.สุธิดา แก้วมาตย์</option>
+                                    <option value="น.ส.สุธิดา แก้วมาตย์">น.ส.สุธิดา แก้วมาตย์</option>
                                     <option value="นางชนากานต์ ปรังกลาง">นางชนากานต์ ปรังกลาง</option>
                                     <option value="นางราตรี พันธ์พรม">นางราตรี พันธ์พรม</option>
                                     <option value="นางอรศศิพัชร์ อริยเกษมศร">นางอรศศิพัชร์ อริยเกษมศร</option>
@@ -167,7 +164,6 @@
                         </div>
                     </div>
 
-                    <!-- ส่วนที่ 2: รายละเอียดงาน -->
                     <div class="bg-blue-50/30 p-5 rounded-2xl border border-blue-100 mb-8 relative">
                         <span class="absolute -top-3 left-4 bg-blue-200 text-blue-700 px-3 py-0.5 rounded-full text-xs font-bold">2. รายละเอียดการดูแล</span>
                         
@@ -288,7 +284,6 @@
                         </div>
                     </div>
 
-                    <!-- ส่วนที่ 3: ลงชื่อ -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-200 border-dashed">
                         <div class="text-center flex flex-col items-center">
                             <i class="fas fa-signature text-gray-300 text-2xl mb-2"></i>
@@ -311,7 +306,6 @@
             </div>
         </div>
 
-        <!-- 3. Executive Summary Tab -->
         <div id="summary" class="tab-content">
             <div class="flex flex-col mb-6">
                 <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">สรุปสำหรับผู้บริหาร 📈</h1>
@@ -373,7 +367,6 @@
             </div>
         </div>
 
-        <!-- 4. Report Tab -->
         <div id="report" class="tab-content">
             <div class="flex flex-col mb-6">
                 <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">ส่งออกรายงาน (PDF) 🖨️</h1>
@@ -444,7 +437,6 @@
             </div>
         </div>
 
-        <!-- 5. ADL Assessment Tab -->
         <div id="adl" class="tab-content">
             <div class="flex flex-col mb-6">
                 <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">ประเมิน ADL 📋</h1>
@@ -456,7 +448,6 @@
                 <form id="adlForm">
                     <div id="adlAlertBox" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all duration-300"></div>
                     
-                    <!-- ข้อมูลผู้ถูกประเมิน -->
                     <div class="bg-teal-50 p-5 rounded-2xl border border-teal-200 mb-8 relative">
                         <span class="absolute -top-3 left-4 bg-teal-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-sm">ข้อมูลผู้ได้รับการประเมิน</span>
                         <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_1fr_100px] gap-4 mt-3">
@@ -504,11 +495,9 @@
                         </div>
                     </div>
 
-                    <!-- ส่วนประเมิน 10 ข้อ -->
                     <h3 class="font-bold text-lg text-teal-800 mb-4 border-b pb-2"><i class="fas fa-list-ol mr-2"></i> หัวข้อการประเมิน 10 ด้าน</h3>
                     <div class="space-y-4 mb-8">
                         
-                        <!-- Q1 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
                             <p class="font-bold text-gray-800 mb-2">1. Feeding (รับประทานอาหารเมื่อเตรียมสำรับไว้ให้เรียบร้อยต่อหน้า)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q1" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ไม่สามารถตักอาหารเข้าปากได้ ต้องมีคนป้อนให้</span></label>
@@ -516,14 +505,12 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q1" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> ตักอาหารและช่วยตัวเองได้เป็นปกติ</span></label>
                         </div>
 
-                        <!-- Q2 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
                             <p class="font-bold text-gray-800 mb-2">2. Grooming (ล้างหน้า หวีผม แปรงฟัน โกนหนวด ในระยะเวลา 24 - 28 ชั่วโมงที่ผ่านมา)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q2" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ต้องการความช่วยเหลือ</span></label>
                             <label class="adl-radio-label"><input type="radio" name="adl_q2" value="1" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>1 คะแนน:</b> ทำเองได้ (รวมทั้งที่ทำได้เองถ้าเตรียมอุปกรณ์ไว้ให้)</span></label>
                         </div>
 
-                        <!-- Q3 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
                             <p class="font-bold text-gray-800 mb-2">3. Transfer (ลุกนั่งจากที่นอน หรือจากเตียงไปยังเก้าอี้)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q3" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ไม่สามารถนั่งได้ (นั่งแล้วจะล้มเสมอ) หรือต้องใช้คนสองคนช่วยกันยกขึ้น</span></label>
@@ -532,7 +519,6 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q3" value="3" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>3 คะแนน:</b> ทำได้เอง</span></label>
                         </div>
 
-                        <!-- Q4 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
                             <p class="font-bold text-gray-800 mb-2">4. Toilet use (ใช้ห้องน้ำ)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q4" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ช่วยตัวเองไม่ได้</span></label>
@@ -540,7 +526,6 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q4" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> ช่วยตัวเองได้ดี (ขึ้นนั่งและลงจากโถส้วมเองได้ ทำความสะอาดได้เรียบร้อยหลังจากเสร็จธุระ ถอดใส่เสื้อผ้าได้เรียบร้อย)</span></label>
                         </div>
 
-                        <!-- Q5 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
                             <p class="font-bold text-gray-800 mb-2">5. Mobility (การเคลื่อนที่ภายในห้องหรือบ้าน)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q5" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> เคลื่อนที่ไปไหนไม่ได้</span></label>
@@ -551,7 +536,6 @@
 
                         <div style="page-break-before: always;"></div>
 
-                        <!-- Q6 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
                             <p class="font-bold text-gray-800 mb-2">6. Dressing (การสวมใส่เสื้อผ้า)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q6" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ต้องมีคนสวมใส่ให้ ช่วยตัวเองแทบไม่ได้หรือได้น้อย</span></label>
@@ -559,7 +543,6 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q6" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> ช่วยตัวเองได้ดี (รวมทั้งการติดกระดุม รูดซิบ หรือใช้เสื้อผ้าที่ดัดแปลงให้เหมาะสมก็ได้)</span></label>
                         </div>
 
-                        <!-- Q7 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
                             <p class="font-bold text-gray-800 mb-2">7. Stairs (การขึ้นลงบันได 1 ชั้น)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q7" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ไม่สามารถทำได้</span></label>
@@ -567,14 +550,12 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q7" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> ขึ้นลงได้เอง (ถ้าต้องใช้เครื่องช่วยเดิน เช่น walker จะต้องเอาขึ้นลงได้ด้วย)</span></label>
                         </div>
 
-                        <!-- Q8 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
                             <p class="font-bold text-gray-800 mb-2">8. Bathing (การอาบน้ำ)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q8" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> ต้องมีคนช่วยหรือทำให้</span></label>
                             <label class="adl-radio-label"><input type="radio" name="adl_q8" value="1" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>1 คะแนน:</b> อาบน้ำเองได้</span></label>
                         </div>
 
-                        <!-- Q9 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-gray-50">
                             <p class="font-bold text-gray-800 mb-2">9. Bowels (การกลั้นการถ่ายอุจจาระในระยะ 1 สัปดาห์ที่ผ่านมา)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q9" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> กลั้นไม่ได้ หรือต้องการการสวนอุจจาระอยู่เสมอ</span></label>
@@ -582,7 +563,6 @@
                             <label class="adl-radio-label"><input type="radio" name="adl_q9" value="2" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>2 คะแนน:</b> กลั้นได้เป็นปกติ</span></label>
                         </div>
 
-                        <!-- Q10 -->
                         <div class="border border-gray-200 rounded-xl p-4 bg-white">
                             <p class="font-bold text-gray-800 mb-2">10. Bladder (การกลั้นปัสสาวะในระยะ 1 สัปดาห์ที่ผ่านมา)</p>
                             <label class="adl-radio-label"><input type="radio" name="adl_q10" value="0" class="adl-radio-input" onchange="calculateADL()"> <span class="text-sm text-gray-700"><b>0 คะแนน:</b> กลั้นไม่ได้ หรือใส่สายสวนปัสสาวะแต่ไม่สามารถดูแลเองได้</span></label>
@@ -591,7 +571,6 @@
                         </div>
                     </div>
 
-                    <!-- สรุปผล -->
                     <div class="bg-gray-800 text-white rounded-2xl p-6 text-center shadow-lg mb-8">
                         <p class="text-gray-300 font-bold mb-2">สรุปผลรวมคะแนน</p>
                         <div class="text-5xl font-black mb-4"><span id="adlScoreDisplay">0</span> <span class="text-xl font-normal">คะแนน</span></div>
@@ -600,7 +579,6 @@
                         </div>
                     </div>
 
-                    <!-- การแบ่งกลุ่ม LTC ของ สปสช. -->
                     <h3 class="font-bold text-lg text-teal-800 mb-4 border-b pb-2"><i class="fas fa-users mr-2"></i> การแบ่งกลุ่มผู้สูงอายุและผู้ที่มีภาวะพึ่งพิง (LTC) ของ สปสช.</h3>
                     <div class="bg-white p-5 rounded-2xl border border-gray-200 mb-8 space-y-2">
                         <label class="adl-radio-label text-sm"><input type="radio" name="ltc_group" value="กลุ่ม 1" class="adl-radio-input"> <b>กลุ่ม 1:</b> เคลื่อนไหวได้บ้างและอาจมีปัญหาการกิน หรือขับถ่าย แต่ไม่มีภาวะสับสนทางสมอง</label>
@@ -609,7 +587,6 @@
                         <label class="adl-radio-label text-sm"><input type="radio" name="ltc_group" value="กลุ่ม 4" class="adl-radio-input"> <b>กลุ่ม 4:</b> เหมือนกลุ่ม 3 และมีอาการเจ็บป่วยรุนแรงหรืออยู่ในระยะท้ายของชีวิต</label>
                     </div>
 
-                    <!-- แบบสอบถามเพิ่มเติม -->
                     <h3 class="font-bold text-lg text-teal-800 mb-4 border-b pb-2"><i class="fas fa-question-circle mr-2"></i> แบบสอบถามเพิ่มเติม (ไม่มีผลคะแนน สำหรับทำทะเบียน)</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 bg-white p-5 rounded-2xl border border-gray-200">
                         <div>
